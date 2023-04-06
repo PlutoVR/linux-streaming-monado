@@ -178,11 +178,6 @@ vk_csci_get_image_usage_flags(struct vk_bundle *vk, VkFormat format, enum xrt_sw
 
 	VkImageUsageFlags image_usage = 0;
 
-	// U_LOG_E(":sob:");
-
-	// // hack
-	// bits = bits & XRT_SWAPCHAIN_USAGE_TRANSFER_SRC;
-
 	if ((bits & XRT_SWAPCHAIN_USAGE_DEPTH_STENCIL) != 0) {
 		if (!check_feature(format, XRT_SWAPCHAIN_USAGE_DEPTH_STENCIL, prop.optimalTilingFeatures,
 		                   VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT)) {
@@ -203,7 +198,6 @@ vk_csci_get_image_usage_flags(struct vk_bundle *vk, VkFormat format, enum xrt_sw
 		image_usage |= VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
 	}
 	if (true) {
-		U_LOG_E("Hi");
 		if (!check_feature(format, XRT_SWAPCHAIN_USAGE_TRANSFER_SRC, prop.optimalTilingFeatures,
 		                   VK_FORMAT_FEATURE_TRANSFER_SRC_BIT)) {
 			return 0;
